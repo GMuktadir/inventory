@@ -2,12 +2,7 @@
 
 namespace App\Http\Requests\Auth;
 
-use Illuminate\Contracts\Validation\Validator;
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Http\Response;
-
-class LoginRequest extends FormRequest
+class LoginRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,13 +24,5 @@ class LoginRequest extends FormRequest
             'password'=>  'required',
         ];
     }
-    protected function failedValidation(Validator $validator)
-    {
-        throw new HttpResponseException(response()->json([
-            'status' => 'Error',
-            'message'=>'Validation error',
-            'data'=>[],
-            'error'=>$validator->errors()
-            ], Response::HTTP_UNPROCESSABLE_ENTITY));
-    }
+   
 }
