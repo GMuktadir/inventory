@@ -22,6 +22,8 @@ Route::prefix('auth')->group(function(){
     Route::post('register',[AuthController::class,'register']);
     Route::post('login',[AuthController::class,'login']);
     Route::post('password/forget_password',[PasswordController::class,'forgetPassword'])->name('forget_password');
+   // Route::post('password/reset_password',[PasswordController::class,'resetPassword'])->name('reset_password');
+
 });
 
 //when no route found | fallback function
